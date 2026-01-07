@@ -14,12 +14,14 @@ export default function MenuManager() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
+  const [category, setCategory] = useState("");
 
   const [editingId, setEditingId] = useState<string | null>(null);
   const [editName, setEditName] = useState("");
   const [editDescription, setEditDescription] = useState("");
   const [editPrice, setEditPrice] = useState("");
   const [editActive, setEditActive] = useState(false);
+  const [editCategory, setEditCategory] = useState("");
 
   async function loadItems() {
     const data = await getMenuItems();
@@ -36,11 +38,13 @@ export default function MenuManager() {
     await createMenuItem({
       name,
       description,
+      category: category || undefined,
       price: Number(price),
     });
 
     setName("");
     setDescription("");
+    setCategory("");
     setPrice("");
     loadItems();
   }
@@ -57,6 +61,7 @@ export default function MenuManager() {
     setEditDescription(item.description ?? "");
     setEditPrice(String(item.price));
     setEditActive(item.active);
+    setEditCategory(item.category ?? "");
   }
 
   function cancelEdit() {
@@ -65,12 +70,14 @@ export default function MenuManager() {
     setEditDescription("");
     setEditPrice("");
     setEditActive(false);
+    setEditCategory("");
   }
 
   async function handleSaveEdit(id: string) {
     await updateMenuItem(id, {
       name: editName,
       description: editDescription,
+      category: editCategory || undefined,
       price: Number(editPrice),
       active: editActive,
     });
@@ -113,6 +120,15 @@ export default function MenuManager() {
           </div>
 
           <div className="form-field">
+            <label>Categoria</label>
+            <input
+              placeholder="Ex: Lanches, Bebidas, Sobremesas..."
+              value={category}
+              onChange={e => setCategory(e.target.value)}
+            />
+          </div>
+
+          <div className="form-field">
             <label>Preço</label>
             <input
               placeholder="Ex: 29.90"
@@ -148,6 +164,14 @@ export default function MenuManager() {
                       placeholder="Description"
                       value={editDescription}
                       onChange={e => setEditDescription(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-field">
+                    <label>Categoria</label>
+                    <input
+                      placeholder="Categoria"
+                      value={editCategory}
+                      onChange={e => setEditCategory(e.target.value)}
                     />
                   </div>
                   <div className="form-field">
