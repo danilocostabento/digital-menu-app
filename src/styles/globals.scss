@@ -1,0 +1,116 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	background: radial-gradient(circle at top, #1f2937 0, $bg-color 55%);
+	color: $text-color;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+button {
+	font: inherit;
+}
+
+.app-shell {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 2rem 1rem;
+}
+
+.card {
+	@include card;
+	width: 100%;
+	max-width: 420px;
+}
+
+.card__title {
+	margin: 0 0 1rem;
+}
+
+.card__section-title {
+	margin: 1.5rem 0 0.75rem;
+	font-size: 0.9rem;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: $muted-color;
+}
+
+.form-field {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+	margin-bottom: 0.9rem;
+}
+
+.form-field input,
+.form-field select {
+	border-radius: 999px;
+	border: 1px solid #1f2937;
+	padding: 0.6rem 0.9rem;
+	background: #020617;
+	color: $text-color;
+}
+
+.form-actions {
+	display: flex;
+	gap: 0.5rem;
+	margin-top: 0.5rem;
+}
+
+.btn-primary {
+	@include button-primary;
+}
+
+.btn-ghost {
+	background: transparent;
+	border-radius: 999px;
+	border: 1px solid #374151;
+	color: $text-color;
+	padding: 0.55rem 1.2rem;
+	cursor: pointer;
+}
+
+.menu-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 1rem;
+	margin-top: 1rem;
+}
+
+.menu-card {
+	@include card;
+	padding: 1rem 1.2rem;
+}
+
+.menu-card__name {
+	margin: 0 0 0.25rem;
+}
+
+.menu-card__desc {
+	margin: 0 0 0.5rem;
+	color: $muted-color;
+	font-size: 0.9rem;
+}
+
+.menu-card__price {
+	font-weight: 600;
+}
+

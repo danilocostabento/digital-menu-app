@@ -1,73 +1,74 @@
-# React + TypeScript + Vite
+# Digital Menu App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![GitHub repo size](https://img.shields.io/github/repo-size/danilocostabento/digital-menu-app?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/danilocostabento/digital-menu-app?style=for-the-badge)
 
-Currently, two official plugins are available:
+<img src="public/preview.png" alt="Preview do Digital Menu App" width="600">
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+> Sistema de cardápio digital para restaurantes, lanchonetes e bares. Permite cadastro, edição e exibição de itens do menu, com categorias, controle de estoque e painel administrativo com autenticação e permissões.
 
-## React Compiler
+### Ajustes e melhorias
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+O projeto está em desenvolvimento. Próximas tarefas:
 
-## Expanding the ESLint configuration
+- [x] Autenticação com Firebase Auth
+- [x] Painel admin com roles (USER, ADMIN, MASTER)
+- [x] CRUD de itens do cardápio com categorias
+- [x] Filtro público por categoria
+- [x] Registro e promoção de usuários
+- [ ] Upload de imagens para itens do menu
+- [ ] Responsividade mobile aprimorada
+- [ ] Notificações e feedbacks visuais
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 💻 Pré-requisitos
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Antes de começar, verifique se você atendeu aos seguintes requisitos:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js 18+ e npm instalados
+- Acesso ao Firebase (Auth e Firestore)
+- Variáveis de ambiente configuradas no arquivo `.env` (veja `.env.example`)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🚀 Instalando Digital Menu App
+
+Clone o repositório e instale as dependências:
+
+```bash
+git clone https://github.com/danilocostabento/digital-menu-app.git
+cd digital-menu-app
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Crie um arquivo `.env` com as credenciais do seu projeto Firebase:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```env
+VITE_FIREBASE_API_KEY=...
+VITE_FIREBASE_AUTH_DOMAIN=...
+VITE_FIREBASE_PROJECT_ID=...
+VITE_FIREBASE_STORAGE_BUCKET=...
+VITE_FIREBASE_MESSAGING_SENDER_ID=...
+VITE_FIREBASE_APP_ID=...
 ```
+
+## ☕ Usando Digital Menu App
+
+Para rodar o projeto em modo desenvolvimento:
+
+```bash
+npm run dev
+```
+
+Acesse `http://localhost:5173` no navegador.
+
+## 📫 Contribuindo para Digital Menu App
+
+1. Bifurque este repositório.
+2. Crie um branch: `git checkout -b <nome_branch>`
+3. Faça suas alterações e confirme-as: `git commit -m '<mensagem_commit>'`
+4. Envie para o branch original: `git push origin <nome_branch>`
+5. Crie uma Pull Request.
+
+Consulte também a [documentação do GitHub sobre Pull Requests](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+
+## 📝 Licença
+
+Este projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.

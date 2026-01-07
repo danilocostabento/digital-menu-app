@@ -1,0 +1,30 @@
+@use "./variables" as *;
+
+@mixin card {
+	background: $card-bg;
+	border-radius: $border-radius;
+	box-shadow: $shadow-soft;
+	padding: 1.5rem;
+}
+
+@mixin button-primary {
+	background: $primary-color;
+	color: #fff;
+	border: none;
+	border-radius: 999px;
+	padding: 0.6rem 1.4rem;
+	font-weight: 600;
+	cursor: pointer;
+	transition: background 0.15s ease-out, transform 0.1s ease-out;
+
+	&:hover {
+		background: $primary-dark;
+		transform: translateY(-1px);
+	}
+
+	&:disabled {
+		opacity: 0.6;
+		cursor: default;
+		transform: none;
+	}
+}
