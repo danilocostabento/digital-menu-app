@@ -1,11 +1,7 @@
-
 # Digital Menu App
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/danilocostabento/digital-menu-app?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/danilocostabento/digital-menu-app?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/danilocostabento/digital-menu-app?style=for-the-badge)
-![GitHub issues](https://img.shields.io/github/issues/danilocostabento/digital-menu-app?style=for-the-badge)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/danilocostabento/digital-menu-app?style=for-the-badge)
 
 <img src="public/preview.png" alt="Preview do Digital Menu App" width="600">
 
