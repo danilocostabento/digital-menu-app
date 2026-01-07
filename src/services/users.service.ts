@@ -34,3 +34,11 @@ export async function deleteUserById(uid: string): Promise<void> {
   const userRef = doc(db, "users", uid);
   await updateDoc(userRef, { disabled: true });
 }
+
+export async function updateUser(
+  uid: string,
+  data: Partial<Pick<AppUser, "name" | "role">>,
+): Promise<void> {
+  const userRef = doc(db, "users", uid);
+  await updateDoc(userRef, data);
+}

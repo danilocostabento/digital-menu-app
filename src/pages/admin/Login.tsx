@@ -1,7 +1,7 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../services/firebase";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
 export default function Login() {
@@ -57,6 +57,10 @@ export default function Login() {
       <button type="submit" disabled={loading}>
         Login
       </button>
+
+      <p>
+        Não tem conta? <Link to="/register">Registrar</Link>
+      </p>
     </form>
   );
 }

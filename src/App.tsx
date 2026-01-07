@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/admin/Login";
+import Register from "./pages/admin/Register";
 import Dashboard from "./pages/admin/Dashboard";
 import MenuManager from "./pages/admin/MenuManager";
 import UsersManager from "./pages/admin/UsersManager";
@@ -13,6 +14,7 @@ export default function App() {
         <Route path="/" element={<Menu />} />
         <Route path="/menu" element={<Menu />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
         <Route
           path="/admin/dashboard"
