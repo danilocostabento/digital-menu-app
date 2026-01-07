@@ -1,7 +1,7 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../services/firebase";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
 export default function Login() {
@@ -35,28 +35,42 @@ export default function Login() {
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <h2>Admin Login</h2>
+    <div className="app-shell">
+      <form className="card" onSubmit={handleLogin}>
+        <h2 className="card__title">Admin Login</h2>
 
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
+        <div className="form-field">
+          <label>Email</label>
+          <input
+            type="email"
+            placeholder="email@exemplo.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
 
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <div className="form-field">
+          <label>Senha</label>
+          <input
+            type="password"
+            placeholder="Sua senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
 
-      {error && <p>{error}</p>}
+        {error && <p>{error}</p>}
 
-      <button type="submit" disabled={loading}>
-        Login
-      </button>
-    </form>
+        <div className="form-actions">
+          <button className="btn-primary" type="submit" disabled={loading}>
+            Login
+          </button>
+        </div>
+
+        <p>
+          Não tem conta? <Link to="/register">Registrar</Link>
+        </p>
+      </form>
+    </div>
   );
 }
