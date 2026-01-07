@@ -67,42 +67,58 @@ export default function Register() {
   };
 
   return (
-    <form onSubmit={handleRegister}>
-      <h2>Registrar Conta</h2>
+    <div className="app-shell">
+      <form className="card" onSubmit={handleRegister}>
+        <h2 className="card__title">Registrar Conta</h2>
 
-      <input
-        type="text"
-        placeholder="Nome"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
+        <div className="form-field">
+          <label>Nome</label>
+          <input
+            type="text"
+            placeholder="Seu nome"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
 
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
+        <div className="form-field">
+          <label>Email</label>
+          <input
+            type="email"
+            placeholder="email@exemplo.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
 
-      <input
-        type="password"
-        placeholder="Senha"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <div className="form-field">
+          <label>Senha</label>
+          <input
+            type="password"
+            placeholder="Senha"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
 
-      <input
-        type="password"
-        placeholder="Confirmar Senha"
-        value={confirmPassword}
-        onChange={(e) => setConfirmPassword(e.target.value)}
-      />
+        <div className="form-field">
+          <label>Confirmar Senha</label>
+          <input
+            type="password"
+            placeholder="Confirmar Senha"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+        </div>
 
-      {error && <p>{error}</p>}
+        {error && <p>{error}</p>}
 
-      <button type="submit" disabled={loading || loadingLocal}>
-        Registrar
-      </button>
-    </form>
+        <div className="form-actions">
+          <button className="btn-primary" type="submit" disabled={loading || loadingLocal}>
+            Registrar
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }

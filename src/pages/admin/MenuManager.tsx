@@ -85,68 +85,102 @@ export default function MenuManager() {
   }
 
   return (
-    <div>
-      <h1>Menu Manager</h1>
-      <Link to="/admin/dashboard">Voltar ao Dashboard</Link>
+    <div className="app-shell">
+      <div className="card">
+        <h1 className="card__title">Gerenciar Cardápio</h1>
+        <p className="card__section-title">
+          <Link to="/admin/dashboard">Voltar ao Dashboard</Link>
+        </p>
 
-      <form onSubmit={handleSubmit}>
-        <input
-          placeholder="Item name"
-          value={name}
-          onChange={e => setName(e.target.value)}
-        />
+        <h2 className="card__section-title">Novo item</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="form-field">
+            <label>Nome</label>
+            <input
+              placeholder="Ex: X-Burger Especial"
+              value={name}
+              onChange={e => setName(e.target.value)}
+            />
+          </div>
 
-        <input
-          placeholder="Description"
-          value={description}
-          onChange={e => setDescription(e.target.value)}
-        />
+          <div className="form-field">
+            <label>Descrição</label>
+            <input
+              placeholder="Ingredientes, observações..."
+              value={description}
+              onChange={e => setDescription(e.target.value)}
+            />
+          </div>
 
-        <input
-          placeholder="Price"
-          type="number"
-          value={price}
-          onChange={e => setPrice(e.target.value)}
-        />
+          <div className="form-field">
+            <label>Preço</label>
+            <input
+              placeholder="Ex: 29.90"
+              type="number"
+              step="0.01"
+              value={price}
+              onChange={e => setPrice(e.target.value)}
+            />
+          </div>
 
-        <button type="submit">Add</button>
-      </form>
+          <div className="form-actions">
+            <button className="btn-primary" type="submit">Adicionar</button>
+          </div>
+        </form>
 
-      <ul>
+        <h2 className="card__section-title">Itens</h2>
+        <ul>
         {items.map(item => (
           <li key={item.id}>
             {editingId === item.id ? (
               <>
-                <input
-                  placeholder="Item name"
-                  value={editName}
-                  onChange={e => setEditName(e.target.value)}
-                />
-                <input
-                  placeholder="Description"
-                  value={editDescription}
-                  onChange={e => setEditDescription(e.target.value)}
-                />
-                <input
-                  placeholder="Price"
-                  type="number"
-                  value={editPrice}
-                  onChange={e => setEditPrice(e.target.value)}
-                />
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={editActive}
-                    onChange={e => setEditActive(e.target.checked)}
-                  />
-                  Ativo (em estoque)
-                </label>
-                <button type="button" onClick={() => handleSaveEdit(item.id!)}>
-                  Salvar
-                </button>
-                <button type="button" onClick={cancelEdit}>
-                  Cancelar
-                </button>
+                  <div className="form-field">
+                    <label>Nome</label>
+                    <input
+                      placeholder="Item name"
+                      value={editName}
+                      onChange={e => setEditName(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-field">
+                    <label>Descrição</label>
+                    <input
+                      placeholder="Description"
+                      value={editDescription}
+                      onChange={e => setEditDescription(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-field">
+                    <label>Preço</label>
+                    <input
+                      placeholder="Price"
+                      type="number"
+                      value={editPrice}
+                      onChange={e => setEditPrice(e.target.value)}
+                    />
+                  </div>
+                  <div className="form-field">
+                    <label>
+                      <input
+                        type="checkbox"
+                        checked={editActive}
+                        onChange={e => setEditActive(e.target.checked)}
+                      />
+                      {" "}Ativo (em estoque)
+                    </label>
+                  </div>
+                  <div className="form-actions">
+                    <button
+                      className="btn-primary"
+                      type="button"
+                      onClick={() => handleSaveEdit(item.id!)}
+                    >
+                      Salvar
+                    </button>
+                    <button type="button" className="btn-ghost" onClick={cancelEdit}>
+                      Cancelar
+                    </button>
+                  </div>
               </>
             ) : (
               <>
@@ -155,20 +189,35 @@ export default function MenuManager() {
                   {!item.active && <strong>(Fora de estoque)</strong>}
                 </span>
                 {item.description && <p>{item.description}</p>}
-                <button type="button" onClick={() => startEdit(item)}>
-                  Editar
-                </button>
-                <button type="button" onClick={() => handleToggleActive(item)}>
-                  {item.active ? "Marcar como fora de estoque" : "Marcar como disponível"}
-                </button>
-                <button type="button" onClick={() => handleDelete(item.id!)}>
-                  Excluir
-                </button>
+                  <div className="form-actions">
+                    <button
+                      className="btn-ghost"
+                      type="button"
+                      onClick={() => startEdit(item)}
+                    >
+                      Editar
+                    </button>
+                    <button
+                      className="btn-ghost"
+                      type="button"
+                      onClick={() => handleToggleActive(item)}
+                    >
+                      {item.active ? "Marcar como fora de estoque" : "Marcar como disponível"}
+                    </button>
+                    <button
+                      className="btn-ghost"
+                      type="button"
+                      onClick={() => handleDelete(item.id!)}
+                    >
+                      Excluir
+                    </button>
+                  </div>
               </>
             )}
           </li>
         ))}
-      </ul>
+        </ul>
+      </div>
     </div>
   );
 }

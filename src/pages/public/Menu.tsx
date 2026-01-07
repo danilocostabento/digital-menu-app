@@ -17,17 +17,21 @@ export default function Menu() {
     const visibleItems = items.filter(item => item.active);
 
     return (
-        <div>
-            <h1>Menu</h1>
-            <ul>
-                {visibleItems.map(item => (
-                    <li key={item.id}>
-                        <strong>{item.name}</strong>
-                        {item.description && <p>{item.description}</p>}
-                        <p>R$ {item.price.toFixed(2)}</p>
-                    </li>
-                ))}
-            </ul>
+        <div className="app-shell">
+            <div className="card">
+                <h1 className="card__title">Cardápio</h1>
+                <div className="menu-list">
+                    {visibleItems.map(item => (
+                        <article key={item.id} className="menu-card">
+                            <h2 className="menu-card__name">{item.name}</h2>
+                            {item.description && (
+                                <p className="menu-card__desc">{item.description}</p>
+                            )}
+                            <p className="menu-card__price">R$ {item.price.toFixed(2)}</p>
+                        </article>
+                    ))}
+                </div>
+            </div>
         </div>
     );
 }
