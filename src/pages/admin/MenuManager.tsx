@@ -4,6 +4,7 @@ import {
   createMenuItem,
   getMenuItems,
   deleteMenuItem,
+  updateMenuItem,
 } from "../../services/menu.service";
 
 import type { MenuItem } from "../../types/MenuItem";
@@ -11,7 +12,14 @@ import type { MenuItem } from "../../types/MenuItem";
 export default function MenuManager() {
   const [items, setItems] = useState<MenuItem[]>([]);
   const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
+
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editName, setEditName] = useState("");
+  const [editDescription, setEditDescription] = useState("");
+  const [editPrice, setEditPrice] = useState("");
+  const [editActive, setEditActive] = useState(false);
 
   async function loadItems() {
     const data = await getMenuItems();
@@ -27,16 +35,52 @@ export default function MenuManager() {
 
     await createMenuItem({
       name,
+      description,
       price: Number(price),
     });
 
     setName("");
+    setDescription("");
     setPrice("");
     loadItems();
   }
 
   async function handleDelete(id: string) {
     await deleteMenuItem(id);
+    loadItems();
+  }
+
+  function startEdit(item: MenuItem) {
+    if (!item.id) return;
+    setEditingId(item.id);
+    setEditName(item.name);
+    setEditDescription(item.description ?? "");
+    setEditPrice(String(item.price));
+    setEditActive(item.active);
+  }
+
+  function cancelEdit() {
+    setEditingId(null);
+    setEditName("");
+    setEditDescription("");
+    setEditPrice("");
+    setEditActive(false);
+  }
+
+  async function handleSaveEdit(id: string) {
+    await updateMenuItem(id, {
+      name: editName,
+      description: editDescription,
+      price: Number(editPrice),
+      active: editActive,
+    });
+    cancelEdit();
+    loadItems();
+  }
+
+  async function handleToggleActive(item: MenuItem) {
+    if (!item.id) return;
+    await updateMenuItem(item.id, { active: !item.active });
     loadItems();
   }
 
@@ -53,6 +97,12 @@ export default function MenuManager() {
         />
 
         <input
+          placeholder="Description"
+          value={description}
+          onChange={e => setDescription(e.target.value)}
+        />
+
+        <input
           placeholder="Price"
           type="number"
           value={price}
@@ -65,8 +115,57 @@ export default function MenuManager() {
       <ul>
         {items.map(item => (
           <li key={item.id}>
-            {item.name} - R$ {item.price}
-            <button onClick={() => handleDelete(item.id!)}>X</button>
+            {editingId === item.id ? (
+              <>
+                <input
+                  placeholder="Item name"
+                  value={editName}
+                  onChange={e => setEditName(e.target.value)}
+                />
+                <input
+                  placeholder="Description"
+                  value={editDescription}
+                  onChange={e => setEditDescription(e.target.value)}
+                />
+                <input
+                  placeholder="Price"
+                  type="number"
+                  value={editPrice}
+                  onChange={e => setEditPrice(e.target.value)}
+                />
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={editActive}
+                    onChange={e => setEditActive(e.target.checked)}
+                  />
+                  Ativo (em estoque)
+                </label>
+                <button type="button" onClick={() => handleSaveEdit(item.id!)}>
+                  Salvar
+                </button>
+                <button type="button" onClick={cancelEdit}>
+                  Cancelar
+                </button>
+              </>
+            ) : (
+              <>
+                <span>
+                  {item.name} - R$ {item.price} {" "}
+                  {!item.active && <strong>(Fora de estoque)</strong>}
+                </span>
+                {item.description && <p>{item.description}</p>}
+                <button type="button" onClick={() => startEdit(item)}>
+                  Editar
+                </button>
+                <button type="button" onClick={() => handleToggleActive(item)}>
+                  {item.active ? "Marcar como fora de estoque" : "Marcar como disponível"}
+                </button>
+                <button type="button" onClick={() => handleDelete(item.id!)}>
+                  Excluir
+                </button>
+              </>
+            )}
           </li>
         ))}
       </ul>
