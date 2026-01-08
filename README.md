@@ -3,6 +3,11 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/danilocostabento/digital-menu-app?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/danilocostabento/digital-menu-app?style=for-the-badge)
 
+<code><img height="32" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png" alt="Typescript"/></code>
+<code><img height="32" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" alt="React"/></code>
+<code><img height="32" src="https://vectorseek.com/wp-content/uploads/2025/05/Firebase-icon-Logo-PNG-SVG-Vector.png" alt="Firebase"/></code>
+<code><img height="32" src="https://raw.githubusercontent.com/devicons/devicon/refs/heads/master/icons/sass/sass-original.svg" alt="Sass"/></code>
+
 <img src="public/preview.png" alt="Preview do Digital Menu App" width="600">
 
 > Sistema de cardápio digital para restaurantes, lanchonetes e bares. Permite cadastro, edição e exibição de itens do menu, com categorias, controle de estoque e painel administrativo com autenticação e permissões.
