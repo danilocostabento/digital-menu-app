@@ -1,4 +1,3 @@
-
 # Digital Menu App
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/danilocostabento/digital-menu-app?style=for-the-badge)
