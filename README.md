@@ -3,9 +3,11 @@
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/danilocostabento/digital-menu-app?style=for-the-badge)
 ![GitHub language count](https://img.shields.io/github/languages/count/danilocostabento/digital-menu-app?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/danilocostabento/digital-menu-app?style=for-the-badge)
-![GitHub issues](https://img.shields.io/github/issues/danilocostabento/digital-menu-app?style=for-the-badge)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/danilocostabento/digital-menu-app?style=for-the-badge)
+
+<code><img height="32" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png" alt="Typescript"/></code>
+<code><img height="32" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png" alt="React"/></code>
+<code><img height="32" src="https://vectorseek.com/wp-content/uploads/2025/05/Firebase-icon-Logo-PNG-SVG-Vector.png" alt="Firebase"/></code>
+<code><img height="32" src="https://raw.githubusercontent.com/devicons/devicon/refs/heads/master/icons/sass/sass-original.svg" alt="Sass"/></code>
 
 <img src="public/preview.png" alt="Preview do Digital Menu App" width="600">
 
@@ -20,9 +22,27 @@ O projeto está em desenvolvimento. Próximas tarefas:
 - [x] CRUD de itens do cardápio com categorias
 - [x] Filtro público por categoria
 - [x] Registro e promoção de usuários
+- [ ] Configuração de ReCaptcha
 - [ ] Upload de imagens para itens do menu
+- [ ] Busca por texto no Menu
+- [ ] Itens em Destaque
+- [ ] Modo Offline via LocalStorage
+- [ ] Paginação em todas as páginas
+- [ ] Aumentar segurança
+- [ ] Busca por nome e filtros no painel admin
+- [ ] Duplicar itens
+- [ ] Edição em modal
 - [ ] Responsividade mobile aprimorada
 - [ ] Notificações e feedbacks visuais
+
+### Opcionais
+
+O projeto pode conter:
+
+- [ ] Sitema de Anotações internas em cada item (Para controle interno)
+- [ ] Integração de Status do dia (Acompanhamento de top itens pedidos, etc)
+- [ ] Exportar cardápio para backup
+- [ ] Opção de Delivery indicando o whatsapp da Loja Ou no próprio site
 
 ## 💻 Pré-requisitos
 
