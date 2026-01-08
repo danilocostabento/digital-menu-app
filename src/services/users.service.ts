@@ -1,4 +1,4 @@
-import { collection, getDocs, doc, setDoc, updateDoc } from "firebase/firestore";
+import { collection, getDocs, doc, setDoc, updateDoc, deleteDoc } from "firebase/firestore";
 import { db } from "./firebase";
 import type { AppUser } from "../types/User";
 
@@ -30,9 +30,9 @@ export async function createUser(email: string, password: string, name: string, 
 
 export async function deleteUserById(uid: string): Promise<void> {
   // Sem Admin SDK, não é possível deletar contas de Auth de outros usuários.
-  // Em vez disso, marcamos o documento como desativado no Firestore.
+  // Aqui removemos apenas o documento do Firestore.
   const userRef = doc(db, "users", uid);
-  await updateDoc(userRef, { disabled: true });
+  await deleteDoc(userRef);
 }
 
 export async function updateUser(
