@@ -21,9 +21,27 @@ O projeto está em desenvolvimento. Próximas tarefas:
 - [x] CRUD de itens do cardápio com categorias
 - [x] Filtro público por categoria
 - [x] Registro e promoção de usuários
+- [ ] Configuração de ReCaptcha
 - [ ] Upload de imagens para itens do menu
+- [ ] Busca por texto no Menu
+- [ ] Itens em Destaque
+- [ ] Modo Offline via LocalStorage
+- [ ] Paginação em todas as páginas
+- [ ] Aumentar segurança
+- [ ] Busca por nome e filtros no painel admin
+- [ ] Duplicar itens
+- [ ] Edição em modal
 - [ ] Responsividade mobile aprimorada
 - [ ] Notificações e feedbacks visuais
+
+### Opcionais
+
+O projeto pode conter:
+
+- [ ] Sitema de Anotações internas em cada item (Para controle interno)
+- [ ] Integração de Status do dia (Acompanhamento de top itens pedidos, etc)
+- [ ] Exportar cardápio para backup
+- [ ] Opção de Delivery indicando o whatsapp da Loja Ou no próprio site
 
 ## 💻 Pré-requisitos
 
