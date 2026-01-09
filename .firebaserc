@@ -1,6 +1,7 @@
 {
   "projects": {
-    "digital-menu-app": "digital-menu-app-545cd"
+    "digital-menu-app": "digital-menu-app-545cd",
+    "default": "digital-menu-app-545cd"
   },
   "targets": {},
   "etags": {}

@@ -12,10 +12,7 @@ export async function getUsers(): Promise<AppUser[]> {
     .filter(user => !user.disabled);
 }
 
-export async function createUser(email: string, password: string, name: string, role: "ADMIN" | "MASTER"): Promise<void> {
-  // Sem Cloud Functions / plano Blaze, não conseguimos criar contas no Auth
-  // para outros usuários. Aqui criamos apenas o documento no Firestore.
-  // O usuário depois fará o próprio cadastro no Auth usando o mesmo email.
+export async function createUser(email: string, name: string, role: "ADMIN" | "MASTER"): Promise<void> {
 
   const userRef = doc(collection(db, "users"));
 
